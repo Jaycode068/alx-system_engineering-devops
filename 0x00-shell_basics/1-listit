@@ -1,0 +1,9 @@
+#!/bin/bash
+# To display content list of current directory
+for item in *
+do
+	if [ -f $item ]
+	  then 
+		echo $item
+	fi
+done
