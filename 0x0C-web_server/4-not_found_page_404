@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Installs ngnix, listens on port 80, modifies the default web file, configures redirect_me
+apt-get -y update
+apt-get -y install nginx
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+echo "Ceci n'est pas une page" > /var/www/html/custom_404_not_found.html
+sed -i "s/server_namei _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/jaycode68 permanent;/" /etc/nginx/sites-available/default
+service nginx restart
